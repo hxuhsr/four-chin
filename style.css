@@ -1,5 +1,5 @@
 body {
-    background: url("res/background.jpg");
+    background: black;
     background-size: cover; 
     background-repeat: no-repeat; 
     margin: 0px;
@@ -172,9 +172,9 @@ body {
   
   .card-swiper-buttons > button {
     font-size: 2.5vmin;
-    border: 0.4vmin solid black;
+    border: 0.4vmin solid white;
     border-radius: 100%;
-    color: black;
+    color: white;
     background-color: transparent;
     height: 7vmin;
     width: 7vmin;
@@ -185,11 +185,11 @@ body {
   
   #love-button {
     color: #e74c3c;
-    border-color: black;
+    border-color: white;
   }
   
   body.menu-toggled > .meta-link > span {
-    color: rgb(30, 30, 30);
+    color:white;
   }
   
   #insta-link {
@@ -234,7 +234,7 @@ body {
   }
   
   .meta-link > span {
-    color: black;
+    color: white;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
   }
