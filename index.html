@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Squada+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="card-swiper">
@@ -115,18 +115,14 @@
           </a>
       </div>
 
-      <audio autoplay controls hidden>
-        <source src="res/song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+      <audio id="my_audio" src="res/song.mp3" type="audio/mpeg"></audio>
       
       <script>
         let activeIndex = 0;
 
         const groups = document.getElementsByClassName("card-group");
 
-        const handleLoveClick = () => 
-        {
+        const handleLoveClick = () => {
             const nextIndex = activeIndex + 1 <= groups.length - 1 ? activeIndex + 1 : 0;
   
             const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
@@ -137,27 +133,30 @@
             nextGroup.dataset.status = "becoming-active-from-before";
   
             setTimeout(() => {
-            nextGroup.dataset.status = "active";
-            activeIndex = nextIndex;
-         });
+                nextGroup.dataset.status = "active";
+                activeIndex = nextIndex;
+            });
         }
 
-    const handleHateClick = () => {
-    const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
+        const handleHateClick = () => {
+            const nextIndex = activeIndex - 1 >= 0 ? activeIndex - 1 : groups.length - 1;
   
-    const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
-    nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
+            const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`),
+            nextGroup = document.querySelector(`[data-index="${nextIndex}"]`);
   
-    currentGroup.dataset.status = "before";
+            currentGroup.dataset.status = "before";
   
-    nextGroup.dataset.status = "becoming-active-from-after";
+            nextGroup.dataset.status = "becoming-active-from-after";
   
-    setTimeout(() => {
-    nextGroup.dataset.status = "active";
-    activeIndex = nextIndex;
-  });
-}
-        
+            setTimeout(() => {
+                nextGroup.dataset.status = "active";
+                activeIndex = nextIndex;
+            });
+        }
+
+        window.onload = function() {
+            document.getElementById("my_audio").play();
+        }
       </script>
 </body>
 </html>
